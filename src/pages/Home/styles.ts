@@ -1,4 +1,17 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+import PresentationBackground from '../../assets/PresentationBackground.png'
+
+interface PresentationDetailsIconContainerParams {
+  type: 'cart' | 'package' | 'time' | 'coffee'
+}
+
+const presentationDetailsIconBackgroundColors = {
+  cart: css`background-color: ${params => params.theme.colors.product.yellow[600]}`,
+  package: css`background-color: ${params => params.theme.colors.base.title}`,
+  time: css`background-color: ${params => params.theme.colors.product.yellow[500]}`,
+  coffee: css`background-color: ${params => params.theme.colors.product.purple[500]}`,
+}
 
 export const HomeContainer = styled.body`
 
@@ -8,11 +21,18 @@ export const PresentationContainer = styled.section`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  column-gap: 4.8125rem;
 
   padding: 5.75rem 10rem;
 
-  > div {
+  background-image: url(${PresentationBackground});
+  background-size: cover;
+  background-repeat: no-repeat;
 
+  > div {
+    display: flex;
+    flex-direction: column;
+    row-gap: 4.125rem;
   }
 
   > img {
@@ -22,13 +42,59 @@ export const PresentationContainer = styled.section`
 
 export const PresentationTitles = styled.div`
   > h1 {
-    font-family: 'Balo', serif;
+    font-family: 'Baloo 2', serif;
     font-weight: 800;
     font-size: 3rem;
     line-height: 130%;
+    color: ${params => params.theme.colors.base.title}
   }
 
   > h2 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 130%;
+    color: ${params => params.theme.colors.base.subtitle}
+  }
+`
+export const PresentationDetailsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 2.5rem;
+  justify-content: space-between;
+`
 
+export const PresentationDetailsSubContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.25rem;
+`
+
+export const PresentationDetailContainer = styled.div`
+  display: flex;
+  align-items: center;
+  column-gap: 0.75rem;
+
+  > h3 {
+    line-height: 130%;
+    font-size: 1rem;
+    color: ${params => params.theme.colors.base.text}
+  }
+`
+
+export const PresentationDetailIconContainer = styled.div<PresentationDetailsIconContainerParams>`
+  padding: 0.5rem;
+
+  border-radius: 9999px;
+
+  line-height: 0;
+
+  ${params => presentationDetailsIconBackgroundColors[params.type]};
+  
+  > svg {
+    width: 1rem;
+    height: 1rem;
+    
+    
+    color: ${params => params.theme.colors.base.background};
   }
 `
