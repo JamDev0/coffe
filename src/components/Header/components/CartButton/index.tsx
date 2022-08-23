@@ -3,7 +3,7 @@ import { ButtonContainer } from './styles'
 
 export function CartButton() {
   return (
-    <ButtonContainer itemsNumber="1">
+    <ButtonContainer itemsNumber={null}>
       <ShoppingCart weight="fill" />
     </ButtonContainer>
   )

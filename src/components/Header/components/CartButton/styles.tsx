@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 interface ButtonContainerParams {
   itemsNumber: string | null
@@ -25,8 +25,8 @@ export const ButtonContainer = styled.button<ButtonContainerParams>`
     height: 1.375rem;
   }
 
-  ::after {
-    content: '3';
+  ${params => params.itemsNumber ? css`::after {
+    content: '${params.itemsNumber}';
 
     display: flex;
     justify-content: center;
@@ -49,5 +49,5 @@ export const ButtonContainer = styled.button<ButtonContainerParams>`
     color: ${(params) => params.theme.colors.base.white};
 
     background-color: ${(params) => params.theme.colors.product.yellow[600]};
-  }
+  }` : css``}
 `
