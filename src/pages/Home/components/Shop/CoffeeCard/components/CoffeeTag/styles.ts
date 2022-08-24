@@ -5,6 +5,7 @@ export const CoffeeTagContainer = styled.span`
   font-size: 0.625rem;
   font-weight: 700;
   line-height: 130%;
+  text-transform: uppercase;
 
   padding: 0.25rem 0.5rem;
 
