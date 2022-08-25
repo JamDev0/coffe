@@ -1,12 +1,13 @@
 import { useEffect } from 'react'
 
-import { useForm } from 'react-hook-form'
+import { FormProvider, useForm } from 'react-hook-form'
 
 import * as zod from 'zod'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 
-import { CartContainer } from './styles'
+import { CartContainer, FormsContainer } from './styles'
+import { AddressForm } from './components/AddressForm'
 
 export function Cart() {
   const OrderFormValidationSchema = zod.object({
@@ -24,8 +25,6 @@ export function Cart() {
   const OrderForm = useForm<OrderFormTypes>(
     {
       resolver: zodResolver(OrderFormValidationSchema),
-      defaultValues: {
-      },
     },
   )
 
@@ -35,5 +34,16 @@ export function Cart() {
 
   // form provider e state do form tbm useFormContext
 
-  return <CartContainer></CartContainer>
+  return (
+    <CartContainer>
+      <FormsContainer>
+        <h2>
+          Complete seu pedido
+        </h2>
+        <FormProvider {...OrderForm}>
+          <AddressForm />
+        </FormProvider>    
+      </FormsContainer>
+    </CartContainer>
+  )
 }
