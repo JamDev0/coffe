@@ -12,6 +12,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     font-weight: 400;
+    line-height: 130%;
   }
 
   body {
@@ -22,5 +23,6 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     font-weight: 400;
+    line-height: 130%;
   }
 `
