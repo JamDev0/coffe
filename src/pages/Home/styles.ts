@@ -1,5 +1,3 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-export const HomeContainer = styled.body`
-
-`
+export const HomeContainer = styled.main``
