@@ -14,7 +14,7 @@ export function Shop() {
       {isThereAnyCoffees ? (
         <CoffeeCardsContainer>
           {Coffees.map((Coffee) => (
-            <CoffeeCard key={Coffee.id} />
+            <CoffeeCard {...Coffee} key={Coffee.id} />
           ))}
         </CoffeeCardsContainer>
       ) : null}
