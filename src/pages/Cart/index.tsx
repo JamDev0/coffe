@@ -32,8 +32,6 @@ export function Cart() {
     document.title = 'Coffee Delivery  - Carrinho'
   }, [])
 
-  // form provider e state do form tbm useFormContext
-
   return (
     <CartContainer>
       <FormsContainer>
