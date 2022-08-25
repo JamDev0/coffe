@@ -7,11 +7,15 @@ import {
   ShopCartBtn,
 } from './styles'
 
-export function Footer() {
+interface FooterProps {
+  price: number
+}
+
+export function Footer({ price }: FooterProps) {
   return (
     <FooterContainer>
       <span>
-        R$ <Price>9,99</Price>
+        R$ <Price>{price}</Price>
       </span>
       <QuantityContainer>
         <Btn>
