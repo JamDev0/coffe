@@ -12,6 +12,4 @@ export const CoffeeTagContainer = styled.span`
   background-color: ${(params) => params.theme.colors.product.yellow[300]};
 
   border-radius: 999px;
-
-  margin-bottom: 16px;
 `

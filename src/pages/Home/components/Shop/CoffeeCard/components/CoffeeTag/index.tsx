@@ -1,5 +1,9 @@
 import { CoffeeTagContainer } from './styles'
 
-export function CoffeeTag() {
-  return <CoffeeTagContainer>Tradicional</CoffeeTagContainer>
+interface CoffeeTagProps {
+  tag: string
+}
+
+export function CoffeeTag({ tag }: CoffeeTagProps) {
+  return <CoffeeTagContainer>{tag}</CoffeeTagContainer>
 }
