@@ -1,28 +1,33 @@
 import { useFormContext } from "react-hook-form";
-import { AddressFormContainer, CEPInput, InputsContainer, SameLineInputsContainer } from "./styles";
+import { AddressFormContainer, CEPInput, InputsContainer, StreetNumberInput, SameLineInputsContainer, StreetInputs, StreetComplementInput, DistrictInput, CityInput, FederativeUnitInput, StreetComplementInputWrapper, StreetComplementInputAfter } from "./styles";
 
 export function AddressForm() {
   const { register } = useFormContext()
 
   return (
     <AddressFormContainer>
-      <InputsContainer>
-        <CEPInput type='text' {...register('cep')}/>
+      
 
-        <input type='text' {...register('street')}/>
+      <InputsContainer>
+        <CEPInput placeholder="CEP" type='text' {...register('cep')}/>
+
+        <StreetInputs placeholder="Rua" type='text' {...register('street')}/>
 
         <SameLineInputsContainer>
-          <input type='text' {...register('streetNumber')}/>
+          <StreetNumberInput placeholder="Número" type='text' {...register('streetNumber')}/>
 
-          <input type='text' {...register('streetComplement')}/>
+          <StreetComplementInputWrapper>
+            <StreetComplementInput placeholder="Complemento" type='text' {...register('streetComplement')}/>
+            <StreetComplementInputAfter>Optional</StreetComplementInputAfter>
+          </StreetComplementInputWrapper>
         </SameLineInputsContainer>
 
         <SameLineInputsContainer>
-          <input type='text' {...register('district')}/>
+          <DistrictInput placeholder="Bairro" type='text' {...register('district')}/>
 
-          <input type='text' {...register('city')}/>
+          <CityInput placeholder="Cidade" type='text' {...register('city')}/>
 
-          <input type='text' {...register('federativeUnit')}/>
+          <FederativeUnitInput placeholder="UF" type='text' {...register('federativeUnit')}/>
         </SameLineInputsContainer>
       </InputsContainer>
     </AddressFormContainer>

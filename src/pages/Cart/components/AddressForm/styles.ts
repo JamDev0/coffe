@@ -38,3 +38,48 @@ const BaseInput = styled.input`
 export const CEPInput = styled(BaseInput)`
   width: 12.5rem;
 `
+
+export const StreetInputs = styled(BaseInput)`
+  width: 100%;
+`
+
+export const StreetNumberInput = styled(BaseInput)`
+  width: 12.5rem;
+`
+
+export const StreetComplementInputWrapper = styled.div`
+  position: relative;
+
+  flex: 1;
+`
+
+export const StreetComplementInput = styled(BaseInput)`
+  width: 100%;
+`
+
+export const StreetComplementInputAfter = styled.span`
+  position: absolute;
+  right: 0.75rem;
+  top: 0;
+
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+
+  font-size: 0.75rem;
+  font-style: italic;
+  color: ${params => params.theme.colors.base.label};
+`
+
+export const DistrictInput = styled(BaseInput)`
+  width: 12.5rem;
+`
+
+export const CityInput = styled(BaseInput)`
+  flex: 1;
+`
+
+export const FederativeUnitInput = styled(BaseInput)`
+  width: 3.75rem;
+`
