@@ -1,18 +1,34 @@
-import { CoffeeCardContainer } from './styles'
+import { CoffeeCardContainer, TagsContainer } from './styles'
 
-import Coffee from '../../../../../assets/Coffees/ExpressoTradicional.png'
 import { CoffeeTag } from './components/CoffeeTag'
 import { Footer } from './components/Footer'
+import { CoffeeInterface } from '../Coffees'
 
-export function CoffeeCard() {
+interface CoffeeCardProps extends CoffeeInterface {}
+
+export function CoffeeCard({
+  description,
+  img,
+  name,
+  price,
+  tags,
+}: CoffeeCardProps) {
+  const isThereAnyTag = tags ? tags.length > 0 : false
+
   return (
     <CoffeeCardContainer>
-      <img src={Coffee} alt="" />
-      <CoffeeTag />
-      <h2>Expresso Tradicional</h2>
-      <h3>O tradicional café feito com água quente e grãos moídos</h3>
+      <img src={img} alt="" />
+      <TagsContainer>
+        {isThereAnyTag
+          ? tags?.map((tag) => {
+              return <CoffeeTag tag={tag} key={tag} />
+            })
+          : null}
+      </TagsContainer>
+      <h2>{name}</h2>
+      <h3>{description}</h3>
 
-      <Footer />
+      <Footer price={price} />
     </CoffeeCardContainer>
   )
 }

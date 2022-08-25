@@ -45,3 +45,11 @@ export const CoffeeCardContainer = styled.section`
     margin-bottom: 2.0625rem;
   }
 `
+
+export const TagsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.25rem;
+
+  margin-bottom: 1rem;
+`
