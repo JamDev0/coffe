@@ -1,3 +1,4 @@
+import { CartCoffeeCard } from './CartCoffeeCard'
 import { OrderContainer, OrderListContainer } from './styles'
 
 export function OrderList() {
@@ -5,7 +6,9 @@ export function OrderList() {
     <OrderListContainer>
       <h2>Cafés selecionados</h2>
 
-      <OrderContainer></OrderContainer>
+      <OrderContainer>
+        <CartCoffeeCard />
+      </OrderContainer>
     </OrderListContainer>
   )
 }

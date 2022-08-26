@@ -19,5 +19,6 @@ export const OrderContainer = styled.div`
   border-radius: 6px 44px 6px 44px;
 
   width: 100%;
-  height: 500px;
+
+  padding: 2.5rem;
 `
