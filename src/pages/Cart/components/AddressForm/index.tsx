@@ -17,7 +17,9 @@ import {
 } from './styles'
 
 export function AddressForm() {
-  const { register } = useFormContext()
+  const { register, watch } = useFormContext()
+
+  const watchedComplement = watch('streetComplement')
 
   return (
     <AddressFormContainer>
@@ -47,7 +49,9 @@ export function AddressForm() {
               type="text"
               {...register('streetComplement')}
             />
-            <StreetComplementInputAfter>Optional</StreetComplementInputAfter>
+            {!watchedComplement ? (
+              <StreetComplementInputAfter>Optional</StreetComplementInputAfter>
+            ) : null}
           </StreetComplementInputWrapper>
         </SameLineInputsContainer>
 

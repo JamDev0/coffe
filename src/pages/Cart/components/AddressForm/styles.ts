@@ -62,6 +62,10 @@ const BaseInput = styled.input`
   ::placeholder {
     color: ${(params) => params.theme.colors.base.label};
   }
+
+  :focus {
+    outline: 1px solid ${(params) => params.theme.colors.product.yellow[600]};
+  }
 `
 
 export const CEPInput = styled(BaseInput)`
