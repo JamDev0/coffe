@@ -45,7 +45,7 @@ export const QuantityContainer = styled.div`
   margin-right: 0.5rem;
 `
 
-export const Btn = styled.button`
+export const QuantityBtn = styled.button`
   display: flex;
   align-items: center;
 
@@ -60,9 +60,17 @@ export const Btn = styled.button`
 
   background-color: transparent;
 
+  transition: color 250ms ease-in-out, transform 150ms ease-in;
+
   > svg {
     width: 0.875rem;
     height: 0.875rem;
+  }
+
+  :hover {
+    color: ${(params) => params.theme.colors.product.purple[600]};
+
+    transform: scale(120%);
   }
 `
 
@@ -82,8 +90,14 @@ export const ShopCartBtn = styled.button`
 
   cursor: pointer;
 
+  transition: background-color 250ms ease-in-out;
+
   > svg {
     width: 1.375rem;
     height: 1.375rem;
+  }
+
+  :hover {
+    background-color: ${(params) => params.theme.colors.product.purple[500]};
   }
 `

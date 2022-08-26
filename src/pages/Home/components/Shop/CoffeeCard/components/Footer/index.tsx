@@ -1,6 +1,6 @@
 import { Minus, Plus, ShoppingCart } from 'phosphor-react'
 import {
-  Btn,
+  QuantityBtn,
   FooterContainer,
   Price,
   QuantityContainer,
@@ -18,13 +18,13 @@ export function Footer({ price }: FooterProps) {
         R$ <Price>{price}</Price>
       </span>
       <QuantityContainer>
-        <Btn>
+        <QuantityBtn>
           <Minus weight="bold" />
-        </Btn>
+        </QuantityBtn>
         1
-        <Btn>
+        <QuantityBtn>
           <Plus weight="bold" />
-        </Btn>
+        </QuantityBtn>
       </QuantityContainer>
       <ShopCartBtn>
         <ShoppingCart weight="fill" />
