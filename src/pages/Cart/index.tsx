@@ -8,6 +8,8 @@ import { zodResolver } from '@hookform/resolvers/zod'
 
 import { CartContainer, FormsContainer } from './styles'
 import { AddressForm } from './components/AddressForm'
+import { OrderList } from './components/OrderList'
+import { PaymentType } from './components/PaymentTypeForm'
 
 export function Cart() {
   const OrderFormValidationSchema = zod.object({
@@ -17,16 +19,14 @@ export function Cart() {
     streetComplement: zod.optional(zod.string().or(zod.number())),
     district: zod.string(),
     city: zod.string(),
-    federativeUnit: zod.string().max(2)
+    federativeUnit: zod.string().max(2),
   })
 
   type OrderFormTypes = zod.infer<typeof OrderFormValidationSchema>
 
-  const OrderForm = useForm<OrderFormTypes>(
-    {
-      resolver: zodResolver(OrderFormValidationSchema),
-    },
-  )
+  const OrderForm = useForm<OrderFormTypes>({
+    resolver: zodResolver(OrderFormValidationSchema),
+  })
 
   useEffect(() => {
     document.title = 'Coffee Delivery  - Carrinho'
@@ -35,13 +35,14 @@ export function Cart() {
   return (
     <CartContainer>
       <FormsContainer>
-        <h2>
-          Complete seu pedido
-        </h2>
+        <h2>Complete seu pedido</h2>
         <FormProvider {...OrderForm}>
           <AddressForm />
-        </FormProvider>    
+          <PaymentType />
+        </FormProvider>
       </FormsContainer>
+
+      <OrderList />
     </CartContainer>
   )
 }
