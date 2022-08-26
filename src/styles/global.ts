@@ -13,6 +13,10 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 1rem;
     font-weight: 400;
     line-height: 130%;
+
+    :focus {
+      outline: none;
+    }
   }
 
   body {
