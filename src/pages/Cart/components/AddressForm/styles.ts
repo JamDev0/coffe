@@ -1,11 +1,40 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const AddressFormContainer = styled.section`
   padding: 2.5rem;
 
-  background-color: ${params => params.theme.colors.base.card};
+  background-color: ${(params) => params.theme.colors.base.card};
 
   border-radius: 6px;
+`
+
+export const DescriptionContainer = styled.div`
+  display: flex;
+  column-gap: 0.5rem;
+
+  margin-bottom: 2rem;
+
+  > svg {
+    width: 1.375rem;
+    height: 1.375rem;
+
+    color: ${(params) => params.theme.colors.product.yellow[600]};
+  }
+
+  > div {
+    display: flex;
+    flex-direction: column;
+
+    > h2 {
+      font-size: 1rem;
+      color: ${(params) => params.theme.colors.base.subtitle};
+    }
+
+    > h3 {
+      font-size: 0.875rem;
+      color: ${(params) => params.theme.colors.base.text};
+    }
+  }
 `
 
 export const InputsContainer = styled.div`
@@ -20,18 +49,18 @@ export const SameLineInputsContainer = styled.div`
 `
 
 const BaseInput = styled.input`
-  border: 1px solid ${params => params.theme.colors.base.button};
+  border: 1px solid ${(params) => params.theme.colors.base.button};
   border-radius: 4px;
 
-  background-color: ${params => params.theme.colors.base.input};
+  background-color: ${(params) => params.theme.colors.base.input};
 
   padding: 0.75rem;
 
-  color: ${params => params.theme.colors.base.text};
+  color: ${(params) => params.theme.colors.base.text};
   font-size: 0.875rem;
 
   ::placeholder {
-    color: ${params => params.theme.colors.base.label};
+    color: ${(params) => params.theme.colors.base.label};
   }
 `
 
@@ -69,7 +98,7 @@ export const StreetComplementInputAfter = styled.span`
 
   font-size: 0.75rem;
   font-style: italic;
-  color: ${params => params.theme.colors.base.label};
+  color: ${(params) => params.theme.colors.base.label};
 `
 
 export const DistrictInput = styled(BaseInput)`
