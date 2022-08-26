@@ -1,4 +1,8 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+interface PayMethodCardParams {
+  selected?: boolean
+}
 
 export const PaymentTypeContainer = styled.section`
   padding: 2.5rem;
@@ -44,7 +48,7 @@ export const PayMethodCardsContainer = styled.div`
   width: 100%;
 `
 
-export const PayMethodCard = styled.div`
+export const PayMethodCard = styled.div<PayMethodCardParams>`
   display: flex;
   column-gap: 0.75rem;
   align-items: center;
@@ -68,10 +72,23 @@ export const PayMethodCard = styled.div`
 
   cursor: pointer;
 
+  transition: background-color 250ms 0s ease-in-out;
+
   > svg {
     width: 1rem;
     height: 1rem;
 
     color: ${(params) => params.theme.colors.product.purple[500]};
   }
+
+  :hover {
+    background-color: ${(params) => params.theme.colors.base.hover};
+  }
+
+  ${(params) =>
+    params.selected
+      ? css`
+          outline: 1px solid ${params.theme.colors.product.purple[500]};
+        `
+      : null}
 `
