@@ -6,6 +6,8 @@ export const AddressFormContainer = styled.section`
   background-color: ${(params) => params.theme.colors.base.card};
 
   border-radius: 6px;
+
+  margin-bottom: 0.75rem;
 `
 
 export const DescriptionContainer = styled.div`
@@ -46,6 +48,8 @@ export const InputsContainer = styled.div`
 export const SameLineInputsContainer = styled.div`
   display: flex;
   column-gap: 0.75rem;
+
+  width: 100%;
 `
 
 const BaseInput = styled.input`
