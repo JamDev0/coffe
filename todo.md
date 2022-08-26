@@ -1,2 +1,1 @@
-[] - Terminar a inicialização do app
-    [] - Configurar as rotas
+[] - Melhorar a responsividade do Shop(Os dois containers principais estão extrapolando os limites)
