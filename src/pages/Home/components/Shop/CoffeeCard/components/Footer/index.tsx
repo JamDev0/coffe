@@ -1,9 +1,8 @@
-import { Minus, Plus, ShoppingCart } from 'phosphor-react'
+import { ShoppingCart } from 'phosphor-react'
+import { QuantityCounter } from '../../../../../../../components/QuantityCounter'
 import {
-  QuantityBtn,
   FooterContainer,
   Price,
-  QuantityContainer,
   ShopCartBtn,
 } from './styles'
 
@@ -17,15 +16,7 @@ export function Footer({ price }: FooterProps) {
       <span>
         R$ <Price>{price}</Price>
       </span>
-      <QuantityContainer>
-        <QuantityBtn>
-          <Minus weight="bold" />
-        </QuantityBtn>
-        1
-        <QuantityBtn>
-          <Plus weight="bold" />
-        </QuantityBtn>
-      </QuantityContainer>
+      <QuantityCounter />
       <ShopCartBtn>
         <ShoppingCart weight="fill" />
       </ShopCartBtn>
