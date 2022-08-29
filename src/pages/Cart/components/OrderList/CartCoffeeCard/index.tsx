@@ -1,6 +1,8 @@
-import { CartCoffeeCardContainer, CartCoffeeCardContentContainer, Price } from "./styles";
+import { ButtonsContainer, CartCoffeeCardContainer, CartCoffeeCardContentContainer, CartCoffeeCardContentPriceAndQuantityContainer, Price } from "./styles";
 
 import Irlandes from '../../../../../assets/Coffees/Type=Irlandês.png'
+import { QuantityCounter } from "../../../../../components/QuantityCounter";
+import { DeleteBtn } from "./components/DeleteBtn";
 
 interface CartCoffeeCardProps {
   img: string
@@ -13,16 +15,19 @@ export function CartCoffeeCard() {
     <CartCoffeeCardContainer>
       <img src={Irlandes}/>
       <CartCoffeeCardContentContainer>
-        <h2>
-          Irlandês
-        </h2>
-        <div>
-
-        </div>
+        <CartCoffeeCardContentPriceAndQuantityContainer>
+          <h2>
+            Irlandês
+          </h2>
+          <ButtonsContainer>
+            <QuantityCounter />
+            <DeleteBtn />
+          </ButtonsContainer>
+        </CartCoffeeCardContentPriceAndQuantityContainer>
+        <Price>
+          R$ 9.99
+        </Price>
       </CartCoffeeCardContentContainer>
-      <Price>
-        R$ 9.99
-      </Price>
     </CartCoffeeCardContainer>
   )
 }
