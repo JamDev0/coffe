@@ -14,6 +14,10 @@ export const OrderListContainer = styled.div`
 `
 
 export const OrderContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+
   background-color: ${(params) => params.theme.colors.base.card};
 
   border-radius: 6px 44px 6px 44px;

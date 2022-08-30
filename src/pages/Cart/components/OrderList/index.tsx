@@ -1,4 +1,5 @@
-import { CartCoffeeCard } from './CartCoffeeCard'
+import { CartCoffeeCard } from './components/CartCoffeeCard'
+import { OrderSummary } from './components/CartCoffeeCard/components/OrderSummary'
 import { OrderContainer, OrderListContainer } from './styles'
 
 export function OrderList() {
@@ -8,6 +9,7 @@ export function OrderList() {
 
       <OrderContainer>
         <CartCoffeeCard />
+        <OrderSummary />
       </OrderContainer>
     </OrderListContainer>
   )
