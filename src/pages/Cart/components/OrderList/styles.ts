@@ -16,7 +16,6 @@ export const OrderListContainer = styled.div`
 export const OrderContainer = styled.div`
   display: flex;
   flex-direction: column;
-  row-gap: 3rem;
 
   background-color: ${(params) => params.theme.colors.base.card};
 
@@ -26,3 +25,12 @@ export const OrderContainer = styled.div`
 
   padding: 2.5rem;
 `
+
+export const CartCoffeeCardsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+
+  margin-bottom: 3rem;
+`
+

@@ -1,6 +1,7 @@
 import { CartCoffeeCard } from './components/CartCoffeeCard'
-import { OrderSummary } from './components/CartCoffeeCard/components/OrderSummary'
-import { OrderContainer, OrderListContainer } from './styles'
+import { ConcludeBtn } from './components/ConcludeBtn'
+import { OrderSummary } from './OrderSummary'
+import { CartCoffeeCardsContainer, OrderContainer, OrderListContainer } from './styles'
 
 export function OrderList() {
   return (
@@ -8,8 +9,12 @@ export function OrderList() {
       <h2>Cafés selecionados</h2>
 
       <OrderContainer>
-        <CartCoffeeCard />
+        <CartCoffeeCardsContainer>
+          <CartCoffeeCard />
+          <CartCoffeeCard />
+        </CartCoffeeCardsContainer>
         <OrderSummary />
+        <ConcludeBtn />
       </OrderContainer>
     </OrderListContainer>
   )
