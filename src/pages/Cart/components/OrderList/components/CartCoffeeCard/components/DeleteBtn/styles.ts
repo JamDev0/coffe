@@ -16,6 +16,8 @@ export const DeleteBtnContainer = styled.button`
 
   cursor: pointer;
 
+  transition: background-color 250ms 0s ease-in-out;
+
   > h2 {
     font-size: 0.75rem;
     line-height: 160%;
@@ -28,5 +30,9 @@ export const DeleteBtnContainer = styled.button`
     height: 1rem;
 
     color: ${params => params.theme.colors.product.purple[500]};
+  }
+
+  :hover {
+    background-color: ${params => params.theme.colors.base.hover};
   }
 `
