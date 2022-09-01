@@ -6,6 +6,8 @@ export const OrderSummaryContainer = styled.div`
   row-gap: 0.75rem;
 
   width: 100%;
+
+  margin-bottom: 1.5rem;
 `
 const BaseOrderSummaryInnerContainer = styled.div`
   display: flex;
