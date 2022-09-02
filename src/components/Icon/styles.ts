@@ -1,20 +1,20 @@
 import styled, { css } from "styled-components";
 
 interface PresentationDetailsIconContainerParams {
-  type: 'cart' | 'package' | 'time' | 'coffee'
+  backgroundColor: 'darkYellow' | 'gray' | 'yellow' | 'purple'
 }
 
 const presentationDetailsIconBackgroundColors = {
-  cart: css`
+  darkYellow: css`
     background-color: ${(params) => params.theme.colors.product.yellow[600]};
   `,
-  package: css`
+  gray: css`
     background-color: ${(params) => params.theme.colors.base.title};
   `,
-  time: css`
+  yellow: css`
     background-color: ${(params) => params.theme.colors.product.yellow[500]};
   `,
-  coffee: css`
+  purple: css`
     background-color: ${(params) => params.theme.colors.product.purple[500]};
   `,
 }
@@ -26,7 +26,9 @@ export const PresentationDetailIconContainer = styled.div<PresentationDetailsIco
 
   line-height: 0;
 
-  ${(params) => presentationDetailsIconBackgroundColors[params.type]};
+  height: fit-content;
+
+  ${(params) => presentationDetailsIconBackgroundColors[params.backgroundColor]};
 
   > svg {
     width: 1rem;
