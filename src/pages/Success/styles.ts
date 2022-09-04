@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from 'styled-components'
 
 export const SuccessContainer = styled.main`
   display: flex;
@@ -17,16 +17,16 @@ export const SuccessContainer = styled.main`
 `
 
 export const SuccessInfoContainer = styled.section`
-  > h1 {  
+  > h1 {
     font-family: 'Baloo 2';
     font-size: 2rem;
     font-weight: 800;
-    color: ${params => params.theme.colors.product.yellow[600]};
+    color: ${(params) => params.theme.colors.product.yellow[600]};
   }
 
   > h2 {
     font-size: 1.25rem;
-    color: ${params => params.theme.colors.base.subtitle};
+    color: ${(params) => params.theme.colors.base.subtitle};
 
     margin-bottom: 2.5rem;
   }
@@ -40,27 +40,31 @@ export const DeliveryInfosContainer = styled.section`
   row-gap: 2rem;
 
   width: 32.875rem;
-  
+
   padding: 2.5rem;
 
   border-radius: 6px 36px;
 
-  background-color: ${params => params.theme.colors.base.background};
+  background-color: ${(params) => params.theme.colors.base.background};
 
   ::before {
     content: '';
 
     position: absolute;
-    top: 0.0625rem;
-    bottom: 0.0625rem;
-    left: 0.0625rem;
-    right: 0.0625rem;
+    top: -0.0625rem;
+    bottom: -0.0625rem;
+    left: -0.0625rem;
+    right: -0.0625rem;
     z-index: -1;
 
-    border-radius: 8px 38px;
+    border-radius: 7px 37px;
 
-    background: rgb(219,172,44);
-    background: linear-gradient(115deg, rgba(219,172,44,1) 0%, rgba(128,71,248,1) 100%);
+    background: rgb(219, 172, 44);
+    background: linear-gradient(
+      115deg,
+      rgba(219, 172, 44, 1) 0%,
+      rgba(128, 71, 248, 1) 100%
+    );
   }
 `
 
@@ -70,7 +74,7 @@ export const DeliveryInfo = styled.div`
   column-gap: 0.75rem;
 
   font-size: 1rem;
-  color: ${params => params.theme.colors.base.text};
+  color: ${(params) => params.theme.colors.base.text};
 `
 
 export const DeliveryBoldInfo = styled.span`
