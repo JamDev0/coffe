@@ -6,29 +6,28 @@ import {
   Price,
 } from './styles'
 
-import Irlandes from '../../../../../../assets/Coffees/Type=Irlandês.png'
 import { QuantityCounter } from '../../../../../../components/QuantityCounter'
 import { DeleteBtn } from './components/DeleteBtn'
-
-interface CartCoffeeCardProps {
-  img: string
-  name: string
-  price: number
-}
+import { useContext } from 'react'
+import { productPropsContext } from '../..'
 
 export function CartCoffeeCard() {
+  const coffeeInfo = useContext(productPropsContext)
+
+  const { name, price, img } = coffeeInfo
+
   return (
     <CartCoffeeCardContainer>
-      <img src={Irlandes} alt="" />
+      <img src={img} alt="" />
       <CartCoffeeCardContentContainer>
         <CartCoffeeCardContentPriceAndQuantityContainer>
-          <h2>Irlandês</h2>
+          <h2>{name}</h2>
           <ButtonsContainer>
-            <QuantityCounter />
+            <QuantityCounter coffeeInfo={coffeeInfo} />
             <DeleteBtn />
           </ButtonsContainer>
         </CartCoffeeCardContentPriceAndQuantityContainer>
-        <Price>R$ 9.99</Price>
+        <Price>R$ {price}</Price>
       </CartCoffeeCardContentContainer>
     </CartCoffeeCardContainer>
   )
