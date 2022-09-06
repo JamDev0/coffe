@@ -2,17 +2,14 @@ import { CoffeeCardContainer, TagsContainer } from './styles'
 
 import { CoffeeTag } from './components/CoffeeTag'
 import { Footer } from './components/Footer'
-import { CoffeeInterface } from '../Coffees'
+import { useContext } from 'react'
+import { CoffeeCardPropsContext } from '..'
 
-interface CoffeeCardProps extends CoffeeInterface {}
+export function CoffeeCard() {
+  const { description, tags, img, name, price } = useContext(
+    CoffeeCardPropsContext,
+  )
 
-export function CoffeeCard({
-  description,
-  img,
-  name,
-  price,
-  tags,
-}: CoffeeCardProps) {
   const isThereAnyTag = tags ? tags.length > 0 : false
 
   return (
