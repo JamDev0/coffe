@@ -1,12 +1,20 @@
-import { CoffeeInterface } from "../../pages/Home/components/Shop/Coffees";
+import { CoffeeInterface } from '../../pages/Home/components/Shop/Coffees'
 
 export enum actionTypes {
-  ADD_PRODUCT_TO_PRODUCTS_LIST = 'ADD_PRODUCT_TO_PRODUCTS_LIST',
+  INCREASE_PRODUCT_QUANTITY = 'INCREASE_PRODUCT_QUANTITY',
+  DECREASE_PRODUCT_QUANTITY = 'DECREASE_PRODUCT_QUANTITY',
 }
 
-export function addProductToProductsListAction(product: CoffeeInterface) {
+export function increaseProductQuantityAction(product: CoffeeInterface) {
   return {
-    type: actionTypes.ADD_PRODUCT_TO_PRODUCTS_LIST,
-    payload: {...product, quantity: 1},
+    type: actionTypes.INCREASE_PRODUCT_QUANTITY,
+    payload: { ...product },
+  }
+}
+
+export function decreaseProductQuantityAction(id: CoffeeInterface['id']) {
+  return {
+    type: actionTypes.DECREASE_PRODUCT_QUANTITY,
+    payload: id,
   }
 }
