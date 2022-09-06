@@ -1,10 +1,15 @@
+import { createContext } from 'react'
 import { CoffeeCard } from './CoffeeCard'
 
-import { Coffees } from './Coffees'
+import { CoffeeInterface, Coffees } from './Coffees'
 
 import { CoffeeCardsContainer, ShopContainer } from './styles'
 
 const isThereAnyCoffees = Coffees.length > 0
+
+export const CoffeeCardPropsContext = createContext<CoffeeInterface>(
+  {} as CoffeeInterface,
+)
 
 export function Shop() {
   return (
@@ -14,7 +19,9 @@ export function Shop() {
       {isThereAnyCoffees ? (
         <CoffeeCardsContainer>
           {Coffees.map((Coffee) => (
-            <CoffeeCard {...Coffee} key={Coffee.id} />
+            <CoffeeCardPropsContext.Provider value={Coffee} key={Coffee.id}>
+              <CoffeeCard />
+            </CoffeeCardPropsContext.Provider>
           ))}
         </CoffeeCardsContainer>
       ) : null}
