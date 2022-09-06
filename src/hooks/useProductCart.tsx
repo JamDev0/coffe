@@ -1,33 +1,53 @@
-import { createContext, ReactNode, useContext, useReducer } from "react";
-import { CoffeeInterface, Coffees } from "../pages/Home/components/Shop/Coffees";
-import { addProductToProductsListAction } from "../reducers/productCartReducer/actions";
-import { productCartReducer, productCartState } from "../reducers/productCartReducer/reducer";
+import { createContext, ReactNode, useContext, useReducer } from 'react'
+import { CoffeeInterface } from '../pages/Home/components/Shop/Coffees'
+import {
+  decreaseProductQuantityAction,
+  increaseProductQuantityAction,
+} from '../reducers/productCartReducer/actions'
+import {
+  productCartReducer,
+  productCartState,
+  productInterface,
+} from '../reducers/productCartReducer/reducer'
 
-interface productCartContext {
-  addProductToProductsList: () => void
+interface productCartContextInterface {
+  increaseProductQuantity: (product: CoffeeInterface) => void
+  decreaseProductQuantity: (id: CoffeeInterface['id']) => void
+  products: productInterface[]
 }
 
 interface ProductCartProviderProps {
   children: ReactNode
 }
 
-const productCartContext = createContext<productCartContext>({} as productCartContext)
+const productCartContext = createContext<productCartContextInterface>(
+  {} as productCartContextInterface,
+)
 
 const initialProductCartState: productCartState = {
-  products: []
+  products: [],
 }
 
 export function ProductCartProvider({ children }: ProductCartProviderProps) {
-  const [state, dispatch] = useReducer(productCartReducer, initialProductCartState)
+  const [state, dispatch] = useReducer(
+    productCartReducer,
+    initialProductCartState,
+  )
 
-  console.log('state: ', state)
+  const products = state.products
 
-  function addProductToProductsList() {
-    dispatch(addProductToProductsListAction(Coffees[0]))
+  function increaseProductQuantity(coffee: CoffeeInterface) {
+    dispatch(increaseProductQuantityAction(coffee))
   }
 
-  return(
-    <productCartContext.Provider value={{ addProductToProductsList }}>
+  function decreaseProductQuantity(id: CoffeeInterface['id']) {
+    dispatch(decreaseProductQuantityAction(id))
+  }
+
+  return (
+    <productCartContext.Provider
+      value={{ increaseProductQuantity, products, decreaseProductQuantity }}
+    >
       {children}
     </productCartContext.Provider>
   )
