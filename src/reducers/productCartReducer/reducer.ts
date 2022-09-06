@@ -1,21 +1,56 @@
-import produce from "immer"
-import { CoffeeInterface } from "../../pages/Home/components/Shop/Coffees"
+import produce from 'immer'
+import { CoffeeInterface } from '../../pages/Home/components/Shop/Coffees'
 
-import { actionTypes } from "./actions"
+import { actionTypes } from './actions'
 
-interface product extends CoffeeInterface {
+export interface productInterface extends CoffeeInterface {
   quantity: number | null
 }
 
 export interface productCartState {
-  products: product[]
+  products: productInterface[]
 }
 
 export function productCartReducer(state: productCartState, action: any) {
   switch (action.type) {
-    case actionTypes.ADD_PRODUCT_TO_PRODUCTS_LIST: {
+    case actionTypes.INCREASE_PRODUCT_QUANTITY: {
       return produce(state, (draft) => {
-        draft.products.push(action.payload)
+        const currentProduct = draft.products.find(
+          (product) => product.id === action.payload.id,
+        )
+
+        if (currentProduct) {
+          currentProduct.quantity!++
+        } else {
+          draft.products.unshift({ ...action.payload, quantity: 1 })
+        }
+      })
+    }
+
+    case actionTypes.DECREASE_PRODUCT_QUANTITY: {
+      return produce(state, (draft) => {
+        const currentProduct = draft.products.find(
+          (product) => product.id === action.payload,
+        )
+
+        function currentProductQuantityIsGreaterThanZero() {
+          if (currentProduct) {
+            if (currentProduct.quantity! - 1 > 0) {
+              return true
+            }
+          }
+          return false
+        }
+
+        if (currentProduct) {
+          if (currentProductQuantityIsGreaterThanZero()) {
+            currentProduct.quantity!--
+          } else {
+            draft.products = draft.products.filter(
+              (product) => product.id !== currentProduct.id,
+            )
+          }
+        }
       })
     }
   }
