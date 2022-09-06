@@ -1,14 +1,43 @@
-import { Minus, Plus } from "phosphor-react";
-import { CounterBtn, CounterContainer } from "./styles";
+import { Minus, Plus } from 'phosphor-react'
+import { useProductCart } from '../../hooks/useProductCart'
+import { CoffeeInterface } from '../../pages/Home/components/Shop/Coffees'
+import { CounterBtn, CounterContainer } from './styles'
 
-export function QuantityCounter() {
+interface QuantityCounterProps {
+  coffeeInfo?: CoffeeInterface
+}
+
+export function QuantityCounter({ coffeeInfo }: QuantityCounterProps) {
+  const { increaseProductQuantity, products, decreaseProductQuantity } =
+    useProductCart()
+
+  const currentProduct = products.find(
+    (product) => product.id === coffeeInfo?.id,
+  )
+
+  const wasCoffeeInfoGiven = !!coffeeInfo
+
+  const isCurrentProductInTheProductList = !!currentProduct
+
   return (
     <CounterContainer>
-      <CounterBtn>
+      <CounterBtn
+        onClick={() => {
+          if (wasCoffeeInfoGiven) {
+            decreaseProductQuantity(coffeeInfo.id)
+          }
+        }}
+      >
         <Minus weight="bold" />
       </CounterBtn>
-      1
-      <CounterBtn>
+      {isCurrentProductInTheProductList ? currentProduct.quantity : 0}
+      <CounterBtn
+        onClick={() => {
+          if (wasCoffeeInfoGiven) {
+            increaseProductQuantity(coffeeInfo)
+          }
+        }}
+      >
         <Plus weight="bold" />
       </CounterBtn>
     </CounterContainer>
