@@ -32,15 +32,22 @@ export function AddressForm() {
       </DescriptionContainer>
 
       <InputsContainer>
-        <CEPInput placeholder="CEP" type="text" {...register('cep')} />
+        <CEPInput
+          placeholder="CEP"
+          type="number"
+          {...register('cep', { valueAsNumber: true, required: true })}
+        />
 
         <StreetInputs placeholder="Rua" type="text" {...register('street')} />
 
         <SameLineInputsContainer>
           <StreetNumberInput
             placeholder="Número"
-            type="text"
-            {...register('streetNumber')}
+            type="number"
+            {...register('streetNumber', {
+              valueAsNumber: true,
+              required: true,
+            })}
           />
 
           <StreetComplementInputWrapper>
@@ -59,7 +66,7 @@ export function AddressForm() {
           <DistrictInput
             placeholder="Bairro"
             type="text"
-            {...register('district')}
+            {...register('district', { required: true })}
           />
 
           <CityInput placeholder="Cidade" type="text" {...register('city')} />
@@ -67,7 +74,7 @@ export function AddressForm() {
           <FederativeUnitInput
             placeholder="UF"
             type="text"
-            {...register('federativeUnit')}
+            {...register('federativeUnit', { required: true })}
           />
         </SameLineInputsContainer>
       </InputsContainer>
