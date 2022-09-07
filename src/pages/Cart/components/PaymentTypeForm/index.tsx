@@ -1,4 +1,5 @@
 import { Bank, CreditCard, CurrencyDollar, Money } from 'phosphor-react'
+import { usePaymentForm } from '../../../../hooks/usePaymentForm'
 import {
   DescriptionContainer,
   PaymentTypeContainer,
@@ -7,6 +8,8 @@ import {
 } from './styles'
 
 export function PaymentType() {
+  const { changeSelectedPaymentForm, selectedPaymentForm } = usePaymentForm()
+
   return (
     <PaymentTypeContainer>
       <DescriptionContainer>
@@ -22,17 +25,32 @@ export function PaymentType() {
       </DescriptionContainer>
 
       <PayMethodCardsContainer>
-        <PayMethodCard>
+        <PayMethodCard
+          onClick={() => {
+            changeSelectedPaymentForm('credit')
+          }}
+          selected={selectedPaymentForm === 'credit'}
+        >
           <CreditCard />
           Cartão de crédito
         </PayMethodCard>
 
-        <PayMethodCard>
+        <PayMethodCard
+          onClick={() => {
+            changeSelectedPaymentForm('debit')
+          }}
+          selected={selectedPaymentForm === 'debit'}
+        >
           <Bank />
           Cartão de débito
         </PayMethodCard>
 
-        <PayMethodCard>
+        <PayMethodCard
+          onClick={() => {
+            changeSelectedPaymentForm('cash')
+          }}
+          selected={selectedPaymentForm === 'cash'}
+        >
           <Money />
           Dinheiro
         </PayMethodCard>
