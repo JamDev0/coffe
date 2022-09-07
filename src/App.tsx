@@ -1,5 +1,6 @@
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
+import { PaymentFormProvider } from './hooks/usePaymentForm'
 import { ProductCartProvider } from './hooks/useProductCart'
 import { Router } from './Router'
 import { GlobalStyles } from './styles/global'
@@ -10,11 +11,13 @@ export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <ProductCartProvider>
-        <BrowserRouter>
-          <Router />
+        <PaymentFormProvider>
+          <BrowserRouter>
+            <Router />
 
-          <GlobalStyles />
-        </BrowserRouter>
+            <GlobalStyles />
+          </BrowserRouter>
+        </PaymentFormProvider>
       </ProductCartProvider>
     </ThemeProvider>
   )
