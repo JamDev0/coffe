@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 interface ButtonContainerParams {
-  itemsNumber: string | null
+  itemsNumber: number | null
 }
 
 export const ButtonContainer = styled.button<ButtonContainerParams>`
@@ -25,29 +25,35 @@ export const ButtonContainer = styled.button<ButtonContainerParams>`
     height: 1.375rem;
   }
 
-  ${params => params.itemsNumber ? css`::after {
-    content: '${params.itemsNumber}';
+  ${(params) =>
+    params.itemsNumber
+      ? css`
+          ::after {
+            content: '${params.itemsNumber}';
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-    position: absolute;
-    top: 0;
-    right: 0;
+            position: absolute;
+            top: 0;
+            right: 0;
 
-    transform: translate(40%, -40%);
+            transform: translate(40%, -40%);
 
-    width: 1.25rem;
-    height: 1.25rem;
+            width: 1.25rem;
+            height: 1.25rem;
 
-    border-radius: 9999px;
+            border-radius: 9999px;
 
-    font-size: 0.75rem;
-    font-weight: bold;
-    line-height: 0;
-    color: ${(params) => params.theme.colors.base.white};
+            font-size: 0.75rem;
+            font-weight: bold;
+            line-height: 0;
+            color: ${(params) => params.theme.colors.base.white};
 
-    background-color: ${(params) => params.theme.colors.product.yellow[600]};
-  }` : css``}
+            background-color: ${(params) =>
+              params.theme.colors.product.yellow[600]};
+          }
+        `
+      : css``}
 `
