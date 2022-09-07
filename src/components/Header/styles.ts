@@ -12,6 +12,8 @@ export const HeaderContainer = styled.header`
   > img {
     width: 5.3125rem;
     height: auto;
+
+    cursor: pointer;
   }
 
   > div {
