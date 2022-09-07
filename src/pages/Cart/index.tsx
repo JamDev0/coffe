@@ -13,13 +13,13 @@ import { PaymentType } from './components/PaymentTypeForm'
 
 export function Cart() {
   const OrderFormValidationSchema = zod.object({
-    cep: zod.number(),
-    street: zod.string(),
-    streetNumber: zod.number(),
+    cep: zod.number().max(99999999).min(10000000),
+    street: zod.string().min(1),
+    streetNumber: zod.number().min(0),
     streetComplement: zod.optional(zod.string().or(zod.number())),
-    district: zod.string(),
-    city: zod.string(),
-    federativeUnit: zod.string().max(2),
+    district: zod.string().min(1),
+    city: zod.string().min(1),
+    federativeUnit: zod.string().max(2).min(2),
   })
 
   type OrderFormTypes = zod.infer<typeof OrderFormValidationSchema>
@@ -34,15 +34,15 @@ export function Cart() {
 
   return (
     <CartContainer>
-      <FormsContainer>
-        <h2>Complete seu pedido</h2>
-        <FormProvider {...OrderForm}>
+      <FormProvider {...OrderForm}>
+        <FormsContainer>
+          <h2>Complete seu pedido</h2>
           <AddressForm />
           <PaymentType />
-        </FormProvider>
-      </FormsContainer>
+        </FormsContainer>
 
-      <OrderList />
+        <OrderList />
+      </FormProvider>
     </CartContainer>
   )
 }
