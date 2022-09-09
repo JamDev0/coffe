@@ -24,22 +24,21 @@ export function OrderList() {
     <OrderListContainer>
       <h2>Cafés selecionados</h2>
       <OrderContainer>
-        {
-          isProductsLengthGreaterThanZero
-          ?  <>
-              <CartCoffeeCardsContainer>
-                {products.map((product) => (
-                  <productPropsContext.Provider value={product} key={product.id}>
-                    <CartCoffeeCard />
-                  </productPropsContext.Provider>
-                ))}
-              </CartCoffeeCardsContainer>
-              <OrderSummary />
-              <ConcludeBtn />
-            </>
-
-          : <EmptyOrderSummary />
-        }
+        {isProductsLengthGreaterThanZero ? (
+          <>
+            <CartCoffeeCardsContainer>
+              {products.map((product) => (
+                <productPropsContext.Provider value={product} key={product.id}>
+                  <CartCoffeeCard />
+                </productPropsContext.Provider>
+              ))}
+            </CartCoffeeCardsContainer>
+            <OrderSummary />
+            <ConcludeBtn />
+          </>
+        ) : (
+          <EmptyOrderSummary />
+        )}
       </OrderContainer>
     </OrderListContainer>
   )
