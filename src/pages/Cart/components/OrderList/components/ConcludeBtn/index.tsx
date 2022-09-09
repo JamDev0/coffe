@@ -10,7 +10,7 @@ export function ConcludeBtn() {
 
   const navigate = useNavigate()
 
-  function onSubmit(data) {
+  function onSubmit() {
     const isPaymentFormSelected = selectedPaymentForm !== null
 
     if (isPaymentFormSelected) {
@@ -18,7 +18,7 @@ export function ConcludeBtn() {
     }
   }
 
-  function onError(data) {
+  function onError(data: any) {
     console.log('Erro ', data)
   }
 
