@@ -1,5 +1,7 @@
 import { Bank, CreditCard, CurrencyDollar, Money } from 'phosphor-react'
 import { usePaymentForm } from '../../../../hooks/usePaymentForm'
+import { useProductCart } from '../../../../hooks/useProductCart'
+import { paymentFormState } from '../../../../reducers/paymentFormReducer/reducer'
 import {
   DescriptionContainer,
   PaymentTypeContainer,
@@ -9,6 +11,16 @@ import {
 
 export function PaymentType() {
   const { changeSelectedPaymentForm, selectedPaymentForm } = usePaymentForm()
+
+  const { products } = useProductCart()
+
+  const isProductsLengthGreaterThanZero = products.length > 0
+
+  function handlePaymentFormClick(type: paymentFormState['selected']) {
+    if (isProductsLengthGreaterThanZero) {
+      changeSelectedPaymentForm(type)
+    }
+  }
 
   return (
     <PaymentTypeContainer>
@@ -27,9 +39,10 @@ export function PaymentType() {
       <PayMethodCardsContainer>
         <PayMethodCard
           onClick={() => {
-            changeSelectedPaymentForm('credit')
+            handlePaymentFormClick('credit')
           }}
           selected={selectedPaymentForm === 'credit'}
+          aria-disabled={!isProductsLengthGreaterThanZero}
         >
           <CreditCard />
           Cartão de crédito
@@ -37,9 +50,10 @@ export function PaymentType() {
 
         <PayMethodCard
           onClick={() => {
-            changeSelectedPaymentForm('debit')
+            handlePaymentFormClick('debit')
           }}
           selected={selectedPaymentForm === 'debit'}
+          aria-disabled={!isProductsLengthGreaterThanZero}
         >
           <Bank />
           Cartão de débito
@@ -47,9 +61,10 @@ export function PaymentType() {
 
         <PayMethodCard
           onClick={() => {
-            changeSelectedPaymentForm('cash')
+            handlePaymentFormClick('cash')
           }}
           selected={selectedPaymentForm === 'cash'}
+          aria-disabled={!isProductsLengthGreaterThanZero}
         >
           <Money />
           Dinheiro

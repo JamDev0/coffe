@@ -81,14 +81,23 @@ export const PayMethodCard = styled.div<PayMethodCardParams>`
     color: ${(params) => params.theme.colors.product.purple[500]};
   }
 
-  :hover {
+  &[aria-disabled='true'] {
+    opacity: 0.7;
+    filter: brightness(0.85);
+
+    cursor: not-allowed;
+  }
+
+  &[aria-disabled='false']:hover {
     background-color: ${(params) => params.theme.colors.base.hover};
   }
 
   ${(params) =>
     params.selected
       ? css`
-          outline: 1px solid ${params.theme.colors.product.purple[500]};
+          &[aria-disabled='false'] {
+            outline: 1px solid ${params.theme.colors.product.purple[500]};
+          }
         `
       : null}
 `
