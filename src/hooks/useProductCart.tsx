@@ -3,6 +3,7 @@ import { CoffeeInterface } from '../pages/Home/components/Shop/Coffees'
 import {
   decreaseProductQuantityAction,
   increaseProductQuantityAction,
+  removeProductAction,
 } from '../reducers/productCartReducer/actions'
 import {
   productCartReducer,
@@ -13,6 +14,7 @@ import {
 interface productCartContextInterface {
   increaseProductQuantity: (product: CoffeeInterface) => void
   decreaseProductQuantity: (id: CoffeeInterface['id']) => void
+  removeProduct: (id: CoffeeInterface['id']) => void
   products: productInterface[]
 }
 
@@ -44,9 +46,18 @@ export function ProductCartProvider({ children }: ProductCartProviderProps) {
     dispatch(decreaseProductQuantityAction(id))
   }
 
+  function removeProduct(id: CoffeeInterface['id']) {
+    dispatch(removeProductAction(id))
+  }
+
   return (
     <productCartContext.Provider
-      value={{ increaseProductQuantity, products, decreaseProductQuantity }}
+      value={{
+        increaseProductQuantity,
+        products,
+        decreaseProductQuantity,
+        removeProduct,
+      }}
     >
       {children}
     </productCartContext.Provider>
