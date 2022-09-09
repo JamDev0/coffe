@@ -1,5 +1,6 @@
 import { MapPinLine } from 'phosphor-react'
 import { useFormContext } from 'react-hook-form'
+import { useProductCart } from '../../../../hooks/useProductCart'
 import {
   AddressFormContainer,
   CEPInput,
@@ -21,6 +22,12 @@ export function AddressForm() {
 
   const watchedComplement = watch('streetComplement')
 
+  const { products } = useProductCart()
+
+  const isProductsLengthGreaterThanZero = products.length > 0
+
+  console.log('Products: ', isProductsLengthGreaterThanZero)
+
   return (
     <AddressFormContainer>
       <DescriptionContainer>
@@ -34,16 +41,25 @@ export function AddressForm() {
       <InputsContainer>
         <CEPInput
           placeholder="CEP"
-          type="number"
-          {...register('cep', { valueAsNumber: true, required: true })}
+          disabled={!isProductsLengthGreaterThanZero}
+          {...register('cep', {
+            required: true,
+            valueAsNumber: true,
+          })}
         />
 
-        <StreetInputs placeholder="Rua" type="text" {...register('street')} />
+        <StreetInputs
+          placeholder="Rua"
+          type="text"
+          {...register('street')}
+          disabled={!isProductsLengthGreaterThanZero}
+        />
 
         <SameLineInputsContainer>
           <StreetNumberInput
             placeholder="Número"
             type="number"
+            disabled={!isProductsLengthGreaterThanZero}
             {...register('streetNumber', {
               valueAsNumber: true,
               required: true,
@@ -54,6 +70,7 @@ export function AddressForm() {
             <StreetComplementInput
               placeholder="Complemento"
               type="text"
+              disabled={!isProductsLengthGreaterThanZero}
               {...register('streetComplement')}
             />
             {!watchedComplement ? (
@@ -66,14 +83,21 @@ export function AddressForm() {
           <DistrictInput
             placeholder="Bairro"
             type="text"
+            disabled={!isProductsLengthGreaterThanZero}
             {...register('district', { required: true })}
           />
 
-          <CityInput placeholder="Cidade" type="text" {...register('city')} />
+          <CityInput
+            placeholder="Cidade"
+            type="text"
+            {...register('city')}
+            disabled={!isProductsLengthGreaterThanZero}
+          />
 
           <FederativeUnitInput
             placeholder="UF"
             type="text"
+            disabled={!isProductsLengthGreaterThanZero}
             {...register('federativeUnit', { required: true })}
           />
         </SameLineInputsContainer>

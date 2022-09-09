@@ -70,6 +70,13 @@ const BaseInput = styled.input`
   :focus {
     outline: 1px solid ${(params) => params.theme.colors.product.yellow[600]};
   }
+
+  :disabled {
+    opacity: 0.7;
+    filter: brightness(0.85);
+
+    cursor: not-allowed;
+  }
 `
 
 export const CEPInput = styled(BaseInput)`
@@ -111,12 +118,18 @@ export const StreetComplementInputAfter = styled.span`
 
 export const DistrictInput = styled(BaseInput)`
   width: 12.5rem;
+
+  text-transform: capitalize;
 `
 
 export const CityInput = styled(BaseInput)`
   flex: 1;
+
+  text-transform: capitalize;
 `
 
 export const FederativeUnitInput = styled(BaseInput)`
   width: 3.75rem;
+
+  text-transform: capitalize;
 `
