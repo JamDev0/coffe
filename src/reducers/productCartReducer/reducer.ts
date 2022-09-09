@@ -53,6 +53,14 @@ export function productCartReducer(state: productCartState, action: any) {
         }
       })
     }
+
+    case actionTypes.REMOVE_PRODUCT: {
+      return produce(state, (draft) => {
+        draft.products = draft.products.filter(
+          (product) => product.id !== action.payload,
+        )
+      })
+    }
   }
 
   return state
