@@ -8,6 +8,6 @@
 
 [] - Fazer com que ao clicar em um input com o carrinho vazio, o foco da página se torne o link para voltar á loja
 
-[] - Disselecionar o tipo de pagamento após efetuar a compra e após esvaziar o carrinho
+[] - Disselecionar o tipo de pagamento após efetuar a compra e após sair da tela de sucesso
 
 [] - Navegação por teclado
