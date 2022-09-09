@@ -3,8 +3,11 @@ import { DeliveryBoldInfo, DeliveryInfo, DeliveryInfosContainer, SuccessContaine
 import SuccessImg from '../../assets/SuccessImg.png'
 import { Icon } from "../../components/Icon";
 import { CurrencyCircleDollar, MapPin, Timer } from "phosphor-react";
+import { useOrderForm } from "../../hooks/useOrderForm";
 
 export function Success() {
+  const { inputsValues } = useOrderForm()
+
   return (
     <SuccessContainer>
       <SuccessInfoContainer>
@@ -14,9 +17,9 @@ export function Success() {
           <DeliveryInfo>
             <Icon svg={<MapPin weight="fill"/>} backgroundColor='purple' />
             <p>
-              Entrega em <DeliveryBoldInfo>Rua João Daniel Martinelli, 102</DeliveryBoldInfo> 
+              Entrega em <DeliveryBoldInfo>{inputsValues.street}, {inputsValues.streetNumber} {inputsValues.streetComplement ? '- ' + inputsValues.streetComplement : null }</DeliveryBoldInfo> 
               <br />
-              Farrapos - Porto Alegre, RS
+              {inputsValues.city} - {inputsValues.district}, {inputsValues.federativeUnit}
             </p>
           </DeliveryInfo>
 
