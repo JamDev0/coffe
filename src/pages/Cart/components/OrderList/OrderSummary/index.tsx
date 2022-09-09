@@ -13,7 +13,10 @@ export function OrderSummary() {
 
   let productTotal = 0
 
-  products.forEach((product) =>  productTotal = productTotal + (product.price*product.quantity!))
+  products.forEach(
+    (product) =>
+      (productTotal = productTotal + product.price * product.quantity!),
+  )
 
   const total = productTotal + deliveryFee
 
