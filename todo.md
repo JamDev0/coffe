@@ -2,8 +2,12 @@
 
 [] - Adicionar um feedback a todas as ações do usuário
 
-[] - Formatar o campo de CEP
+[] - Formatar o campo de CEP (fazer manualmente)
 
 [] - Dinamitizar o conteudo da pagina de sucesso
 
-[] - Dinamitizar o conteudo do orderSumary
+[] - Fazer com que ao clicar em um input com o carrinho vazio, o foco da página se torne o link para voltar á loja
+
+[] - Disselecionar o tipo de pagamento após efetuar a compra e após esvaziar o carrinho
+
+[] - Navegação por teclado
