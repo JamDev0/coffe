@@ -11,19 +11,19 @@ import { AddressForm } from './components/AddressForm'
 import { OrderList } from './components/OrderList'
 import { PaymentType } from './components/PaymentTypeForm'
 
+const OrderFormValidationSchema = zod.object({
+  cep: zod.number().max(99999999).min(10000000),
+  street: zod.string().min(1),
+  streetNumber: zod.number().min(0),
+  streetComplement: zod.optional(zod.string().or(zod.number())),
+  district: zod.string().min(1),
+  city: zod.string().min(1),
+  federativeUnit: zod.string().max(2).min(2),
+})
+
+export type OrderFormTypes = zod.infer<typeof OrderFormValidationSchema>
+
 export function Cart() {
-  const OrderFormValidationSchema = zod.object({
-    cep: zod.number().max(99999999).min(10000000),
-    street: zod.string().min(1),
-    streetNumber: zod.number().min(0),
-    streetComplement: zod.optional(zod.string().or(zod.number())),
-    district: zod.string().min(1),
-    city: zod.string().min(1),
-    federativeUnit: zod.string().max(2).min(2),
-  })
-
-  type OrderFormTypes = zod.infer<typeof OrderFormValidationSchema>
-
   const OrderForm = useForm<OrderFormTypes>({
     resolver: zodResolver(OrderFormValidationSchema),
   })

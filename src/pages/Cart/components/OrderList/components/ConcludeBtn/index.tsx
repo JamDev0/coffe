@@ -1,12 +1,16 @@
 import { useFormContext } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
+import { OrderFormTypes } from '../../../..'
+import { useOrderForm } from '../../../../../../hooks/useOrderForm'
 import { usePaymentForm } from '../../../../../../hooks/usePaymentForm'
 import { ConcludeBtnContainer } from './styles'
 
 export function ConcludeBtn() {
-  const { handleSubmit } = useFormContext()
+  const { handleSubmit, getValues } = useFormContext()
 
   const { selectedPaymentForm } = usePaymentForm()
+
+  const { registerFormValues } = useOrderForm()
 
   const navigate = useNavigate()
 
@@ -15,6 +19,7 @@ export function ConcludeBtn() {
 
     if (isPaymentFormSelected) {
       navigate('/success')
+      registerFormValues(getValues() as OrderFormTypes)
     }
   }
 

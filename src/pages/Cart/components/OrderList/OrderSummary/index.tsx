@@ -20,8 +20,6 @@ export function OrderSummary() {
 
   const total = productTotal + deliveryFee
 
-  console.log(products)
-
   return (
     <OrderSummaryContainer>
       <ItemsTotalContainer>
