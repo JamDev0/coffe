@@ -4,6 +4,7 @@ export enum actionTypes {
   INCREASE_PRODUCT_QUANTITY = 'INCREASE_PRODUCT_QUANTITY',
   DECREASE_PRODUCT_QUANTITY = 'DECREASE_PRODUCT_QUANTITY',
   REMOVE_PRODUCT = 'REMOVE_PRODUCT',
+  CLEAN_CART = 'CLEAN_CART',
 }
 
 export function increaseProductQuantityAction(product: CoffeeInterface) {
@@ -24,5 +25,11 @@ export function removeProductAction(id: CoffeeInterface['id']) {
   return {
     type: actionTypes.REMOVE_PRODUCT,
     payload: id,
+  }
+}
+
+export function cleanCartAction() {
+  return {
+    type: actionTypes.CLEAN_CART,
   }
 }

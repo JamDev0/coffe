@@ -61,6 +61,12 @@ export function productCartReducer(state: productCartState, action: any) {
         )
       })
     }
+
+    case actionTypes.CLEAN_CART: {
+      return produce(state, (draft) => {
+        draft.products = []
+      })
+    }
   }
 
   return state

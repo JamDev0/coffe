@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useContext, useReducer } from 'react'
 import { CoffeeInterface } from '../pages/Home/components/Shop/Coffees'
 import {
+  cleanCartAction,
   decreaseProductQuantityAction,
   increaseProductQuantityAction,
   removeProductAction,
@@ -15,6 +16,7 @@ interface productCartContextInterface {
   increaseProductQuantity: (product: CoffeeInterface) => void
   decreaseProductQuantity: (id: CoffeeInterface['id']) => void
   removeProduct: (id: CoffeeInterface['id']) => void
+  cleanCart: () => void
   products: productInterface[]
 }
 
@@ -50,6 +52,10 @@ export function ProductCartProvider({ children }: ProductCartProviderProps) {
     dispatch(removeProductAction(id))
   }
 
+  function cleanCart() {
+    dispatch(cleanCartAction())
+  }
+
   return (
     <productCartContext.Provider
       value={{
@@ -57,6 +63,7 @@ export function ProductCartProvider({ children }: ProductCartProviderProps) {
         products,
         decreaseProductQuantity,
         removeProduct,
+        cleanCart,
       }}
     >
       {children}
