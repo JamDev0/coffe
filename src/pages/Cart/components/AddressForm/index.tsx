@@ -1,4 +1,5 @@
 import { MapPinLine } from 'phosphor-react'
+import React from 'react'
 import { useFormContext } from 'react-hook-form'
 import { useProductCart } from '../../../../hooks/useProductCart'
 import {
@@ -18,7 +19,7 @@ import {
 } from './styles'
 
 export function AddressForm() {
-  const { register, watch } = useFormContext()
+  const { register, watch, setValue } = useFormContext()
 
   const watchedComplement = watch('streetComplement')
 
@@ -26,7 +27,39 @@ export function AddressForm() {
 
   const isProductsLengthGreaterThanZero = products.length > 0
 
-  console.log('Products: ', isProductsLengthGreaterThanZero)
+  function formatCEPInput(event: React.ChangeEvent<HTMLInputElement>) {
+    let value = event.target.value
+
+    let valueWithoutDash = value.replace('-', '')
+
+    const shouldInsertDash = value.length === 5
+
+    const maxLengthReached = value.length > 9
+
+    const dashInserted = value.includes('-') //Dar um jeito de ao clicar delete na - apagar ela e o numero atrás dela
+
+    const inputData = event.nativeEvent.data
+
+    if (shouldInsertDash && !dashInserted) {
+      value = value + '-'
+    } else {
+      if (inputData === null && dashInserted) {
+        console.log('Ops')
+
+        const indexOfDash = value.indexOf('-')
+
+        value.slice(1 - indexOfDash, indexOfDash)
+      }
+    }
+
+    if (maxLengthReached) {
+
+    }
+
+    setValue('cep', value)
+
+    console.log('Teste formatação: ', value, valueWithoutDash)
+  }
 
   return (
     <AddressFormContainer>
@@ -41,11 +74,12 @@ export function AddressForm() {
       <InputsContainer>
         <CEPInput
           placeholder="CEP"
-          disabled={!isProductsLengthGreaterThanZero}
+          // disabled={!isProductsLengthGreaterThanZero}
           {...register('cep', {
             required: true,
             valueAsNumber: true,
           })}
+          onChange={(event) => formatCEPInput(event)}
         />
 
         <StreetInputs
