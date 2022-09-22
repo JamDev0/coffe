@@ -48,7 +48,7 @@ export const PayMethodCardsContainer = styled.div`
   width: 100%;
 `
 
-export const PayMethodCard = styled.div<PayMethodCardParams>`
+export const PayMethodCard = styled.button<PayMethodCardParams>`
   display: flex;
   column-gap: 0.75rem;
   align-items: center;
