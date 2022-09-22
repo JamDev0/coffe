@@ -15,7 +15,9 @@ export const GlobalStyles = createGlobalStyle`
     line-height: 130%;
 
     :focus {
-      outline: none;
+      outline: 2px solid ${params => params.theme.colors.product.purple[500]};
+
+      outline-offset: 2px;
     }
   }
 
