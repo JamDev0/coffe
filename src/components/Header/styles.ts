@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import { MapPin } from 'phosphor-react'
+import { Link } from 'react-router-dom'
 
 export const HeaderContainer = styled.header`
   display: flex;
@@ -9,16 +10,26 @@ export const HeaderContainer = styled.header`
 
   padding: 2.0625rem 10rem;
 
-  > img {
-    width: 5.3125rem;
-    height: auto;
-
-    cursor: pointer;
-  }
-
   > div {
     display: flex;
     column-gap: 0.75rem;
+  }
+`
+
+export const HomeBtn = styled(Link)`
+  display: flex;
+  
+  align-items: center;
+
+  width: 5.3125rem;
+  height: auto;
+
+  cursor: pointer;
+
+  border-radius: 6px;
+
+  :focus {
+    outline-offset: 5px;
   }
 `
 

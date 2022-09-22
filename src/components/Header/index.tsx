@@ -1,4 +1,4 @@
-import { HeaderContainer, LocationContainer, MapPinStyled } from './styles'
+import { HeaderContainer, HomeBtn, LocationContainer, MapPinStyled } from './styles'
 
 import logo from '../../assets/Logo.svg'
 import { CartButton } from './components/CartButton'
@@ -9,7 +9,9 @@ export function Header() {
 
   return (
     <HeaderContainer>
-      <img src={logo} alt="App logo" onClick={() => navigate('/')} />
+      <HomeBtn to={'/'}>
+        <img src={logo} alt="App logo" />
+      </HomeBtn>
 
       <div>
         <LocationContainer>
