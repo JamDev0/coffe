@@ -10,6 +10,7 @@ import { CartContainer, FormsContainer } from './styles'
 import { AddressForm } from './components/AddressForm'
 import { OrderList } from './components/OrderList'
 import { PaymentType } from './components/PaymentTypeForm'
+import { useProductCart } from '../../hooks/useProductCart'
 
 const OrderFormValidationSchema = zod.object({
   cep: zod.string(),
@@ -27,6 +28,34 @@ export function Cart() {
   const OrderForm = useForm<OrderFormTypes>({
     resolver: zodResolver(OrderFormValidationSchema),
   })
+
+  const { products } = useProductCart()
+
+  console.log('Values: ', OrderForm.getValues())
+
+  if(products.length <= 0) {
+    if(OrderForm.getValues().cep) {
+      OrderForm.resetField('cep')
+    }
+    if(OrderForm.getValues().city) {
+      OrderForm.resetField('city')
+    }
+    if(OrderForm.getValues().district) {
+      OrderForm.resetField('district')
+    }
+    if(OrderForm.getValues().federativeUnit) {
+      OrderForm.resetField('federativeUnit')
+    }
+    if(OrderForm.getValues().street) {
+      OrderForm.resetField('street')
+    }
+    if(OrderForm.getValues().streetComplement) {
+      OrderForm.resetField('streetComplement')
+    }
+    if(OrderForm.getValues().streetNumber) {
+      OrderForm.resetField('streetNumber')
+    }
+  }
 
   useEffect(() => {
     document.title = 'Coffee Delivery  - Carrinho'
