@@ -45,7 +45,7 @@ export function PaymentType() {
           disabled={!isProductsLengthGreaterThanZero}
         >
           <CreditCard />
-          Cartão de crédito
+          <span>Cartão de crédito</span>
         </PayMethodCard>
 
         <PayMethodCard
@@ -56,7 +56,7 @@ export function PaymentType() {
           disabled={!isProductsLengthGreaterThanZero}
         >
           <Bank />
-          Cartão de débito
+          <span>Cartão de débito</span>
         </PayMethodCard>
 
         <PayMethodCard
@@ -67,7 +67,7 @@ export function PaymentType() {
           disabled={!isProductsLengthGreaterThanZero}
         >
           <Money />
-          Dinheiro
+          <span>Dinheiro</span>
         </PayMethodCard>
       </PayMethodCardsContainer>
     </PaymentTypeContainer>

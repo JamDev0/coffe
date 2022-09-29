@@ -63,11 +63,6 @@ export const PayMethodCard = styled.button<PayMethodCardParams>`
 
   min-width: fit-content;
 
-  font-size: 0.75rem;
-  line-height: 160%;
-  color: ${(params) => params.theme.colors.base.text};
-  text-transform: uppercase;
-
   background-color: ${(params) => params.theme.colors.base.button};
 
   cursor: pointer;
@@ -79,6 +74,15 @@ export const PayMethodCard = styled.button<PayMethodCardParams>`
     height: 1rem;
 
     color: ${(params) => params.theme.colors.product.purple[500]};
+  }
+
+  > span {
+    max-width: fit-content;
+
+    font-size: 0.75rem;
+    line-height: 160%;
+    color: ${(params) => params.theme.colors.base.text};
+    text-transform: uppercase;
   }
 
   :disabled {

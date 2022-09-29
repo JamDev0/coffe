@@ -3,6 +3,8 @@ import styled from 'styled-components'
 export const CartContainer = styled.main`
   display: flex;
   column-gap: 2rem;
+  flex-wrap: wrap;
+  row-gap: 4rem;
 
   padding: 0px 10rem;
 `
