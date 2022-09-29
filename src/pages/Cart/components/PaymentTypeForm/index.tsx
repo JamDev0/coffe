@@ -42,7 +42,7 @@ export function PaymentType() {
             handlePaymentFormClick('credit')
           }}
           selected={selectedPaymentForm === 'credit'}
-          aria-disabled={!isProductsLengthGreaterThanZero}
+          disabled={!isProductsLengthGreaterThanZero}
         >
           <CreditCard />
           Cartão de crédito
@@ -53,7 +53,7 @@ export function PaymentType() {
             handlePaymentFormClick('debit')
           }}
           selected={selectedPaymentForm === 'debit'}
-          aria-disabled={!isProductsLengthGreaterThanZero}
+          disabled={!isProductsLengthGreaterThanZero}
         >
           <Bank />
           Cartão de débito
@@ -64,7 +64,7 @@ export function PaymentType() {
             handlePaymentFormClick('cash')
           }}
           selected={selectedPaymentForm === 'cash'}
-          aria-disabled={!isProductsLengthGreaterThanZero}
+          disabled={!isProductsLengthGreaterThanZero}
         >
           <Money />
           Dinheiro

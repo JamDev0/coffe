@@ -81,22 +81,23 @@ export const PayMethodCard = styled.button<PayMethodCardParams>`
     color: ${(params) => params.theme.colors.product.purple[500]};
   }
 
-  &[aria-disabled='true'] {
+  :disabled {
     opacity: 0.7;
     filter: brightness(0.85);
 
     cursor: not-allowed;
   }
 
-  &[aria-disabled='false']:hover {
+  &:not(:disabled):hover {
     background-color: ${(params) => params.theme.colors.base.hover};
   }
 
   ${(params) =>
     params.selected
       ? css`
-          &[aria-disabled='false'] {
-            outline: 1px solid ${params.theme.colors.product.purple[500]};
+          &:not(:disabled) {
+            box-shadow: 0px 0px 0px 1px
+              ${params.theme.colors.product.purple[500]};
           }
         `
       : null}

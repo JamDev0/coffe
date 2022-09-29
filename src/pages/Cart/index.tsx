@@ -12,7 +12,7 @@ import { OrderList } from './components/OrderList'
 import { PaymentType } from './components/PaymentTypeForm'
 
 const OrderFormValidationSchema = zod.object({
-  cep: zod.number().max(99999999).min(10000000),
+  cep: zod.string(),
   street: zod.string().min(1),
   streetNumber: zod.number().min(0),
   streetComplement: zod.optional(zod.string().or(zod.number())),

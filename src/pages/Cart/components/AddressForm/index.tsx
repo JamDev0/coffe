@@ -28,37 +28,38 @@ export function AddressForm() {
   const isProductsLengthGreaterThanZero = products.length > 0
 
   function formatCEPInput(event: React.ChangeEvent<HTMLInputElement>) {
-    let value = event.target.value
+    const value = event.target.value
 
-    let valueWithoutDash = value.replace('-', '')
+    const valueWithoutDash = value.replace('-', '')
 
-    const shouldInsertDash = value.length === 5
-
-    const maxLengthReached = value.length > 9
-
-    const dashInserted = value.includes('-') //Dar um jeito de ao clicar delete na - apagar ela e o numero atrás dela
+    const shouldInsertDash = valueWithoutDash.length >= 5
 
     const inputData = event.nativeEvent.data
 
-    if (shouldInsertDash && !dashInserted) {
-      value = value + '-'
-    } else {
-      if (inputData === null && dashInserted) {
-        console.log('Ops')
+    let finalValue
 
-        const indexOfDash = value.indexOf('-')
-
-        value.slice(1 - indexOfDash, indexOfDash)
+    if (shouldInsertDash) {
+      if (inputData === null && valueWithoutDash.length - 1 < 5) {
+        finalValue = valueWithoutDash
+      } else {
+        finalValue =
+          valueWithoutDash.substring(0, 5) +
+          '-' +
+          valueWithoutDash.substring(5, 8)
       }
+    } else {
+      finalValue = valueWithoutDash
     }
 
-    if (maxLengthReached) {
+    setValue('cep', finalValue)
+  }
 
-    }
+  function formatFUInput(event: React.ChangeEvent<HTMLInputElement>) {
+    const value = event.target.value
 
-    setValue('cep', value)
+    const finalValue = value.substring(0, 2)
 
-    console.log('Teste formatação: ', value, valueWithoutDash)
+    setValue('federativeUnit', finalValue)
   }
 
   return (
@@ -74,11 +75,8 @@ export function AddressForm() {
       <InputsContainer>
         <CEPInput
           placeholder="CEP"
-          // disabled={!isProductsLengthGreaterThanZero}
-          {...register('cep', {
-            required: true,
-            valueAsNumber: true,
-          })}
+          disabled={!isProductsLengthGreaterThanZero}
+          {...register('cep')}
           onChange={(event) => formatCEPInput(event)}
         />
 
@@ -133,6 +131,7 @@ export function AddressForm() {
             type="text"
             disabled={!isProductsLengthGreaterThanZero}
             {...register('federativeUnit', { required: true })}
+            onChange={(event) => formatFUInput(event)}
           />
         </SameLineInputsContainer>
       </InputsContainer>

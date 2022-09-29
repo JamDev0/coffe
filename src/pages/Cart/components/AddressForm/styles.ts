@@ -117,7 +117,7 @@ export const StreetComplementInputAfter = styled.span`
 `
 
 export const DistrictInput = styled(BaseInput)`
-  width: 12.5rem;
+  width: 30%;
 
   text-transform: capitalize;
 `
@@ -129,7 +129,7 @@ export const CityInput = styled(BaseInput)`
 `
 
 export const FederativeUnitInput = styled(BaseInput)`
-  width: 3.75rem;
+  width: 15%;
 
   text-transform: capitalize;
 `

@@ -1,10 +1,6 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import PresentationBackground from '../../../../assets/PresentationBackground.png'
-
-interface PresentationDetailsIconContainerParams {
-  type: 'cart' | 'package' | 'time' | 'coffee'
-}
 
 export const PresentationContainer = styled.section`
   display: flex;
@@ -49,6 +45,7 @@ export const PresentationDetailsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   column-gap: 2.5rem;
+  row-gap: 1.25rem;
   justify-content: space-between;
 `
 

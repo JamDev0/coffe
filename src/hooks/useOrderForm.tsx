@@ -1,14 +1,19 @@
-import { createContext, ReactNode, useContext, useReducer } from "react";
-import { OrderFormTypes } from "../pages/Cart";
-import { registerFormValuesAction } from "../reducers/orderFormReducer/actions";
-import { orderFormReducer, orderFormState } from "../reducers/orderFormReducer/reducer";
+import { createContext, ReactNode, useContext, useReducer } from 'react'
+import { OrderFormTypes } from '../pages/Cart'
+import { registerFormValuesAction } from '../reducers/orderFormReducer/actions'
+import {
+  orderFormReducer,
+  orderFormState,
+} from '../reducers/orderFormReducer/reducer'
 
 interface orderFormContextInterface {
   registerFormValues: (inputValues: OrderFormTypes) => void
   inputsValues: orderFormState['inputsValues']
 }
 
-const orderFormContext = createContext<orderFormContextInterface>({} as orderFormContextInterface)
+const orderFormContext = createContext<orderFormContextInterface>(
+  {} as orderFormContextInterface,
+)
 
 const orderFormInitialState: orderFormState = {
   inputsValues: {
@@ -18,7 +23,7 @@ const orderFormInitialState: orderFormState = {
     federativeUnit: '',
     street: '',
     streetNumber: 0,
-  }
+  },
 }
 
 interface OrderFormProviderProps {
@@ -34,7 +39,11 @@ export function OrderFormProvider({ children }: OrderFormProviderProps) {
     dispatch(registerFormValuesAction(inputValues))
   }
 
-  return <orderFormContext.Provider value={{ registerFormValues, inputsValues }}>{children}</orderFormContext.Provider>
+  return (
+    <orderFormContext.Provider value={{ registerFormValues, inputsValues }}>
+      {children}
+    </orderFormContext.Provider>
+  )
 }
 
 export function useOrderForm() {
