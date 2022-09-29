@@ -1,4 +1,4 @@
-[] - Melhorar a responsividade do Shop(Os dois containers principais estão extrapolando os limites)
+[] - Responsividade resolvida, agora tentar fazer com que o container orderList ocupe 100&% quando for wrapped e o seu titulo fique no meio da tela
 
 [] - Adicionar um feedback a todas as ações do usuário
 
