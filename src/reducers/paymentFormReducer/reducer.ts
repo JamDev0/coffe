@@ -12,6 +12,12 @@ export function paymentFormReducer(state: paymentFormState, action: any) {
         draft.selected = action.payload
       })
     }
+
+    case actionTypes.CLEAR: {
+      return produce(state, draft => {
+        draft.selected = null
+      })
+    }
   }
 
   return state
