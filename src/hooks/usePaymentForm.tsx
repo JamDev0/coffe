@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useContext, useReducer } from 'react'
-import { changeSelectedPaymentFormAction } from '../reducers/paymentFormReducer/actions'
+import { changeSelectedPaymentFormAction, clearAction } from '../reducers/paymentFormReducer/actions'
 import {
   paymentFormReducer,
   paymentFormState,
@@ -8,8 +8,9 @@ import {
 interface paymentFormContextInterface {
   selectedPaymentForm: paymentFormState['selected']
   changeSelectedPaymentForm: (
-    paymentToSelect: paymentFormState['selected'],
-  ) => void
+    paymentToSelect: paymentFormState['selected']
+  ) => void,
+  clearPaymentForm: () => void
 }
 
 const paymentFormContext = createContext<paymentFormContextInterface>(
@@ -30,8 +31,6 @@ export function PaymentFormProvider({ children }: PaymentFormProviderProps) {
     paymentFormInitialState,
   )
 
-  console.log('state:', state)
-
   const selectedPaymentForm = state.selected
 
   function changeSelectedPaymentForm(
@@ -40,9 +39,13 @@ export function PaymentFormProvider({ children }: PaymentFormProviderProps) {
     dispatch(changeSelectedPaymentFormAction(paymentToSelect))
   }
 
+  function clearPaymentForm() {
+    dispatch(clearAction())
+  }
+
   return (
     <paymentFormContext.Provider
-      value={{ selectedPaymentForm, changeSelectedPaymentForm }}
+      value={{ selectedPaymentForm, changeSelectedPaymentForm, clearPaymentForm }}
     >
       {children}
     </paymentFormContext.Provider>
