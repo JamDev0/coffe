@@ -34,6 +34,7 @@ export function AddressForm() {
 
     const shouldInsertDash = valueWithoutDash.length >= 5
 
+    //@ts-ignore
     const inputData = event.nativeEvent.data
 
     let finalValue

@@ -17,7 +17,7 @@ const orderFormContext = createContext<orderFormContextInterface>(
 
 const orderFormInitialState: orderFormState = {
   inputsValues: {
-    cep: 0,
+    cep: '',
     city: '',
     district: '',
     federativeUnit: '',
