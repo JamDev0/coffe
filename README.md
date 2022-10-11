@@ -60,7 +60,7 @@ Um e-commerce de cafés
    <br>
    <br>
    
-    👥 Padronização do código:
+   👥 Padronização do código:
 
    👉 [eslint](https://github.com/eslint/eslint);
    
