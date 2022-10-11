@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
-export const OrderListContainer = styled.div`
-  width: 26rem;
-
+const BaseOrderListContainer = styled.div`
   > h2 {
     font-size: 1.125rem;
     font-weight: 700;
@@ -11,6 +9,14 @@ export const OrderListContainer = styled.div`
 
     margin-bottom: 0.9375rem;
   }
+`
+
+export const OrderListContainerDesktop = styled(BaseOrderListContainer)`
+  width: 26rem;
+`
+
+export const OrderListContainerMobile = styled(BaseOrderListContainer)`
+  width: 100%;
 `
 
 export const OrderContainer = styled.div`

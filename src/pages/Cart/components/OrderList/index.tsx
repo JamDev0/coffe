@@ -1,4 +1,5 @@
 import { createContext } from 'react'
+import { useMediaQuery } from 'react-responsive'
 import { useProductCart } from '../../../../hooks/useProductCart'
 import { productInterface } from '../../../../reducers/productCartReducer/reducer'
 import { CartCoffeeCard } from './components/CartCoffeeCard'
@@ -8,7 +9,8 @@ import { OrderSummary } from './OrderSummary'
 import {
   CartCoffeeCardsContainer,
   OrderContainer,
-  OrderListContainer,
+  OrderListContainerDesktop,
+  OrderListContainerMobile
 } from './styles'
 
 export const productPropsContext = createContext<productInterface>(
@@ -19,6 +21,12 @@ export function OrderList() {
   const { products } = useProductCart()
 
   const isProductsLengthGreaterThanZero = products.length > 0
+
+  const isBreakPoint1 = useMediaQuery({
+    query: '(max-width: 1200px)'
+  })
+
+  const OrderListContainer = isBreakPoint1 ? OrderListContainerMobile : OrderListContainerDesktop
 
   return (
     <OrderListContainer>
