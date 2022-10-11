@@ -7,6 +7,7 @@ export const CartContainer = styled.main`
   row-gap: 4rem;
 
   padding: 0px 10rem;
+  padding-bottom: 50px;
 `
 
 export const FormsContainer = styled.div`
