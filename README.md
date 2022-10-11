@@ -23,7 +23,7 @@ Um e-commerce de cafés
   
   🖼️ Icones:
 
-   👉 [phorsphor_icons](https://github.com/phosphor-icons/phosphor-react);
+   👉 [phorsphor_icons](https://github.com/phosphor-icons/phosphor-react)
   
   
   <br>
@@ -46,7 +46,7 @@ Um e-commerce de cafés
   
   🖼️ Icones:
 
-   👉 [phorsphor_icons](https://github.com/phosphor-icons/phosphor-react);
+   👉 [phorsphor_icons](https://github.com/phosphor-icons/phosphor-react)
    
    <br>
   <br>
@@ -55,14 +55,14 @@ Um e-commerce de cafés
 
    👉 [zod](https://github.com/colinhacks/zod);
    
-   👉 [react-hook-form](https://github.com/react-hook-form/react-hook-form);
+   👉 [react-hook-form](https://github.com/react-hook-form/react-hook-form)
    
    <br>
    <br>
    
   🎛️ Auxiliação na manipulação de estados imutaveis:
 
-   👉 [immer](https://github.com/immerjs/immer);
+   👉 [immer](https://github.com/immerjs/immer)
       
    <br>
    <br>
@@ -71,4 +71,4 @@ Um e-commerce de cafés
 
    👉 [eslint](https://github.com/eslint/eslint);
    
-   👉 [Template es-lint da Rocketseat para react](https://github.com/Rocketseat/eslint-config-rocketseat);
+   👉 [Template es-lint da Rocketseat para react](https://github.com/Rocketseat/eslint-config-rocketseat)
