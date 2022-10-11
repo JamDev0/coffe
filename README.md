@@ -43,13 +43,6 @@ Um e-commerce de cafés
    
    <br>
   <br>
-  
-  🖼️ Icones:
-
-   👉 [phorsphor_icons](https://github.com/phosphor-icons/phosphor-react)
-   
-   <br>
-  <br>
 
   📋 Formulários:
 
